@@ -12,7 +12,7 @@
   - It will use express web framework to serve the request & ejs for UI
   - To create the hash id, nanoid ID generator is used (since it is fast, lightweight and has larger alphabe than UUID)
   - For storing the fullUrl and corresponding shortUrl, going with NoSQL database since it is highly available, scalable and in future, if we wanted to add new validity specifiers, then it can be easily added to the NoSQL databse.
-- Hosting on render (when scaling the application it could be migrated to better platforms like AWS)
+- Hosting on render which auto deploys whenever there is any new commit
 - Currently, the app supports adding max number of clicks allowed after which the link becoms invalid.
 
 ## See Live Demo

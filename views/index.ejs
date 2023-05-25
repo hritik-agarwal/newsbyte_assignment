@@ -13,9 +13,7 @@
         <label for="url">Type your url here:</label>
         <input type="url" name="url" required placeholder="url" />
         <br />
-        <label for="clicks"
-          >Type max number of clicks (default infinite):</label
-        >
+        <label for="clicks">Type max number of clicks (default infinite):</label>
         <input min="1" type="number" name="clicks" placeholder="clicks" />
         <br />
         <button type="submit">Submit</button>
@@ -33,12 +31,7 @@
         var text = document.getElementById('shortUrl')
         navigator.clipboard
           .writeText(text.innerHTML)
-          .then(() => {
-            alert('URL copied to clipboard')
-          })
-          .catch(error => {
-            alert('something went wrong', error)
-          })
+          .then(() => alert('URL copied to clipboard'))
       }
     </script>
   </body>
