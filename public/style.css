@@ -20,11 +20,17 @@ body {
   padding: 0 20px;
 }
 
+h1 {
+  color: hsl(220deg 29.41% 30%);
+  margin-bottom: 50px;
+}
+
 .formContainer {
   min-width: 70%;
   background-color: white;
   padding: 20px;
   border-radius: 20px;
+  box-shadow: 2px 2px 23px -7px rgba(0, 0, 0, 0.69);
 }
 
 input {
@@ -56,7 +62,7 @@ label {
 
 form p {
   color: #808791;
-  font-size: normal;
+  font-size: 1.3rem;
   margin-bottom: 20px;
 }
 
