@@ -2,16 +2,24 @@ const path = require('path')
 const {nanoid} = require('nanoid')
 const HashedURL = require('../models/hashedURL')
 
+const fetchValidId = async () => {
+  const id = nanoid().slice(0, 7)
+  const data = await HashedURL.findOne({shortURL: id})
+  if (!data) return id
+  return await fetchValidId()
+}
+
 const getHomePage = (req, res) => {
   res.render('index.ejs', {url: ''})
 }
 
 const generateShortUrl = async (req, res) => {
-  const {url} = req.body
-  const id = nanoid().slice(0, 7)
+  const {url, clicks} = req.body
+  const id = await fetchValidId()
   const newURL = new HashedURL({
     fullURL: url,
     shortURL: id,
+    clicks: clicks ? clicks : -1,
   })
   try {
     await newURL.save()
@@ -30,8 +38,19 @@ const redirectToUrl = async (req, res) => {
   } catch (error) {
     console.log(error)
   }
-  if (!data) return res.status(404).json({message: 'Invalid URL'})
-  res.redirect(data.fullURL)
+  if (!data || data.clicks === 0) {
+    return res.status(404).json({message: 'Invalid URL'})
+  }
+  if (data.clicks === -1) {
+    return res.status(200).redirect(data.fullURL)
+  }
+  try {
+    await HashedURL.updateOne({shortURL: id}, {clicks: data.clicks - 1})
+    return res.status(200).redirect(data.fullURL)
+  } catch (error) {
+    console.log(error)
+  }
+  res.status(404).json({message: 'Invalid URL'})
 }
 
 module.exports = {

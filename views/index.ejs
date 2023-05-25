@@ -23,10 +23,23 @@
       <div class="shortUrl">
         <span class="shortUrlTitle">
           <% if (url.length > 0) { %> Short URL:
-          <a href="<%= url %>"><%= url %></a>
+          <span id="shortUrl" onclick="copyTextToClipBoard()"><%= url %></span>
           <%} else { %> <% } %>
         </span>
       </div>
     </div>
+    <script>
+      function copyTextToClipBoard() {
+        var text = document.getElementById('shortUrl')
+        navigator.clipboard
+          .writeText(text.innerHTML)
+          .then(() => {
+            alert('URL copied to clipboard')
+          })
+          .catch(error => {
+            alert('something went wrong', error)
+          })
+      }
+    </script>
   </body>
 </html>

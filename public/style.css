@@ -46,6 +46,7 @@ button[type='submit'] {
   background-color: coral;
   color: white;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .shortUrl {
@@ -60,4 +61,8 @@ button[type='submit'] {
 .shortUrlTitle a {
   color: white;
   text-decoration: none;
+}
+
+#shortUrl {
+  cursor: pointer;
 }

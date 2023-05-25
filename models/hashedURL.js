@@ -10,6 +10,9 @@ const hashedURLSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    clicks: {
+      type: Number,
+    },
   },
   {
     timestamps: true,
