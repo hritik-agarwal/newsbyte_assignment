@@ -11,12 +11,13 @@
   <body>
     <div class="container">
       <form action="/" class="formContainer" method="post">
-        <label for="url">Type your url here:</label>
-        <input type="url" name="url" required placeholder="url" />
+        <label for="url">Type your url*</label>
+        <input type="url" name="url" required placeholder="https://www.your-website.com" />
         <br />
-        <label for="clicks">Type max number of clicks (default infinite):</label>
-        <input min="1" type="number" name="clicks" placeholder="clicks" />
+        <label for="clicks">Type max clicks</label>
+        <input min="1" type="number" name="clicks" placeholder="5" />
         <br />
+        <p>Note: Leave max clicks empty to set default value infinite.</p>
         <button type="submit">Submit</button>
       </form>
       <div class="shortUrl">

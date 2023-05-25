@@ -6,11 +6,11 @@
 
 body {
   font-size: 24px;
-  background-color: #010101;
+  background-color: hsl(0, 0%, 90%);
 }
 
 .container {
-  max-width: 800px;
+  max-width: 700px;
   min-height: 100vh;
   margin: 0 auto;
   display: flex;
@@ -32,10 +32,32 @@ input {
   outline: none;
   width: 100%;
   padding: 20px 20px;
-  background-color: lightgray;
-  margin: 10px 0;
+  border: 1px solid lightgray;
+  margin: 20px 0;
   border-radius: 10px;
   font-size: 1.5rem;
+}
+
+::placeholder {
+  color: lightgray;
+}
+
+input:focus {
+  outline: 2px solid hsl(198.33deg 93.75% 62.35%);
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+label {
+  color: #79828f;
+}
+
+form p {
+  color: #808791;
+  font-size: normal;
+  margin-bottom: 20px;
 }
 
 button[type='submit'] {
@@ -43,10 +65,12 @@ button[type='submit'] {
   outline: none;
   width: 100%;
   padding: 20px;
-  background-color: coral;
+  background-color: hsl(216.25deg 32% 29.41%);
   color: white;
   border-radius: 20px;
   cursor: pointer;
+  font-size: large;
+  font-weight: bold;
 }
 
 .shortUrl {
@@ -55,11 +79,11 @@ button[type='submit'] {
 }
 
 .shortUrlTitle {
-  color: white;
+  color: black;
 }
 
 .shortUrlTitle a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
