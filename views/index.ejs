@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/" class="formContainer" method="post">
+        <label for="url">Type your url here:</label>
+        <input type="url" name="url" required placeholder="url" />
+        <br />
+        <label for="clicks"
+          >Type max number of clicks (default infinite):</label
+        >
+        <input min="1" type="number" name="clicks" placeholder="clicks" />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+      <div class="shortUrl">
+        <span class="shortUrlTitle">
+          <% if (url.length > 0) { %> Short URL:
+          <a href="<%= url %>"><%= url %></a>
+          <%} else { %> <% } %>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
